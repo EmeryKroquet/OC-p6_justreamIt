@@ -1,0 +1,14 @@
+{
+  "files.autoSave": "afterDelay",
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "workbench.preferredHighContrastColorTheme": "Abyss",
+  "workbench.iconTheme": "vs-minimal",
+  "workbench.preferredHighContrastLightColorTheme": "Default Dark+",
+  "workbench.preferredLightColorTheme": "Default High Contrast",
+  "typescript.inlayHints.enumMemberValues.enabled": false,
+  "editor.links": false,
+  "editor.semanticHighlighting.enabled": false,
+  "window.autoDetectColorScheme": true,
+  "files.trimTrailingWhitespace": false
+}

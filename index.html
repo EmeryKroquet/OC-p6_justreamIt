@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Just Stream It</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+    integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <body>
+    <!-- Header -->
+    <header> <div class="Logo">
+      <a id="logo" href="#home"><img src="logo.png" alt="Image de Logo"></a>
+    </div>
+    <div class="home">
+      <a href="#">Home</a>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Categories</button>
+      <div class="dropdown-content">
+        <a href="#bestMovies">Meilleurs Films</a>
+        <a href="#categie1">Catégorie 1</a>
+        <a href="#categorie2">Catégorie 2</a>
+        <a href="#categorie3">Catégorie 3</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="hero">
+    <div class="heroContent">
+    </div>
+  </div>
+
+
+  <div class="modal" id="itemModal" style="display: none;">
+    <div class="modal-content">
+      <span class="close">x</span>
+      <div class="textArea">
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-container" id="bestMovies">
+    <h1>Meilleurs Films</h1>
+    <div class="carousel-inner">
+      <div class="track" >
+      </div>
+    </div>
+  </div>
+
+
+  <div class="carousel-container" id="categorie1">
+    <h1>Animation</h1>
+    <div class="carousel-inner">
+      <div class="track">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="carousel-container" id="categorie2">
+    <h1>Family</h1>
+    <div class="carousel-inner">
+      <div class="track">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="carousel-container" id="categorie3">
+    <h1>Film-Noir</h1>
+    <div class="carousel-inner">
+      <div class="track">
+      </div>
+    </div>
+  </div>
+
+  <!-- Fin de main container-->
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Just Stream It</p>
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>
