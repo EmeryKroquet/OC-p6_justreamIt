@@ -9,22 +9,22 @@ Le projet OCMovies-API est une application web à éxécuter localement dans le 
 
 ## I. Comment télécharger le projet depuis le depos Github sur son ordinateur ?
 
-1. Cloner ce dépôt de code à l'aide de la commande
-   python`$ git clone clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git`
+1. Cloner ce dépôt de code à l'aide de la commande:
+   `$ git clone clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git`
 
 2. Rendez-vous depuis un terminal à la racine du répertoire ocmovies-api-fr avec la commande:
-   python`$ cd OCMovies-api-FR-EN `
+   `$ cd OCMovies-api-FR-EN `
 
 3. Créer un environnement virtuel pour le projet avec
-   python`$ python -m venv env` sous windows ou
-   python`$ python3 -m venv env` sous macos ou linux.
+   `$ python -m venv env` sous windows ou
+   `$ python3 -m venv env` sous macos ou linux.
 
 4. Activez l'environnement virtuel avec
-   python`$ env\Scripts\activate` sous windows ou
-   python`$ source env/bin/activate` sous macos ou linux.
+   `$ env\Scripts\activate` sous windows ou
+   `$ source env/bin/activate` sous macos ou linux.
 
 5. Installez les dépendances du projet à l'aide de la commande:
-   python`$ pipenv install`
+   `$ pipenv install`
 
 6. Créer et alimenter la base de données
 
@@ -34,14 +34,14 @@ Le projet OCMovies-API est une application web à éxécuter localement dans le 
 
 ### Comment installer les dépence dependances du projet ?
 
-python`$ pipenv install`
+`$ pipenv install`
 
 ### Comment alimenter la base de données ?
 
 Entrez la commande:
-python` $ pipenv run python manage.py create_db`
+` $ pipenv run python manage.py create_db`
 
 ### Comment demarer le projet ?
 
 Démarrer le serveur avec pipenv run:
-python`$ python manage.py runserver`
+`$ python manage.py runserver`
