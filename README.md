@@ -1,5 +1,7 @@
 # OpenClassrooms Projet 6 JustStreamIt
 
+![Alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/emerykroquet/Documents/OC_PROJECTS/OC_P6_juststreamit/images/justreamit.png?version%3D1679327904567)
+
 ## Développez une interface utilisateur pour une application web Python
 
 Ce projet est dans le but Interagir avec une API REST.
