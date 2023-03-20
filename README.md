@@ -1,10 +1,10 @@
 # OpenClassrooms Projet 6 JustStreamIt
 
-![](justreamit.png)
+![](justreamit.pn)
 
 ## Développez une interface utilisateur pour une application web Python
 
-Ce projet est dans le but Interagir avec une API REST.
+Ce projet est dans l'objectif d'Interagir avec une API REST.
 De Développer la partie Front-End d’une application avec HTML, CSS et JavaScript.
 
 Le projet OCMovies-API est une application web à éxécuter localement dans le cadre de projets éducatifs. Cette application est implémentée sous la forme d'une API REST. Elle fournit des informations cinématogratphiques à partir d'urls interrogeables à l'aide d'un client HTTP graphique comme un navigateur web ou postman, ou d'un client HTTP programmatique comme requests en python ou fetch/axios en javascript. Les points d'entrées fournis par cette API de test sont consultables en lecture-seule avec des points d'entrée limités aux requêtes GET.
