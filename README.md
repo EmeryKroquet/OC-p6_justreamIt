@@ -1,6 +1,6 @@
 # OpenClassrooms Projet 6 JustStreamIt
 
-![Alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/emerykroquet/Documents/OC_PROJECTS/OC_P6_juststreamit/images/justreamit.png?version%3D1679327904567)
+![](justreamit.png)
 
 ## Développez une interface utilisateur pour une application web Python
 
