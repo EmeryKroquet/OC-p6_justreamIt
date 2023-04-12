@@ -162,6 +162,51 @@ async function getMovieDetails(id, dict) {
   createSection(items, id);
 }
 
+async function updateCarousel(url, carouselId) {
+  try {
+    const response = await axios.get(url);
+    const data = response.data.results;
+    const carouselData = [];
+
+    // Format the data for the carousel
+    data.forEach((item) => {
+      carouselData.push({
+        title: item.title,
+        image: item.image_url,
+        year: item.year,
+        imdb: item.imdb_score,
+      });
+    });
+
+    // Update the carousel with the new data
+    const carousel = document.querySelector(`#${carouselId}`);
+    const carouselInner = carousel.querySelector(".carousel-inner");
+
+    // Clear the current items in the carousel
+    carouselInner.innerHTML = "";
+
+    // Add the new items to the carousel
+    for (let i = 0; i < carouselData.length; i++) {
+      const item = carouselData[i];
+      const active = i === 0 ? "active" : "";
+
+      const carouselItem = `
+        <div class="carousel-item ${active}">
+          <img src="${item.image}" class="d-block w-100" alt="${item.title}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>${item.title}</h5>
+            <p>${item.year} | IMDB ${item.imdb}</p>
+          </div>
+        </div>
+      `;
+
+      carouselInner.insertAdjacentHTML("beforeend", carouselItem);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // cette fonction récupère le film n°1 par imdb_score et affiche les informations
 // dans le héros.
 function getTopRatedMovies() {
