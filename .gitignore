@@ -1,5 +1,4 @@
 env
-.DS_Store
 .idea
-data
-docuement.txt
+.vscode
+document.txt
