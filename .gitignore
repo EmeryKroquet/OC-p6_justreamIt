@@ -1,5 +1,5 @@
-*.idea
-*.vscode
 env
 .DS_Store
-.txt
+.idea
+data
+docuement.txt

@@ -47,3 +47,8 @@ Entrez la commande:
 
 Démarrer le serveur avec pipenv run:
 `$ python manage.py runserver`
+
+
+- Récupérer le click + catégorie et coté
+- Regarde l'api et construit l'url pour ta requete
+http://localhost/api/titles/.....{categorie}/?page=2
