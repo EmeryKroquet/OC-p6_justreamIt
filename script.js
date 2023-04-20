@@ -1,4 +1,4 @@
-// L' url de base de l'API
+//L' url de l'API
 const root = "http://localhost:8000/api/v1/titles/";
 
 const body = document.body;
@@ -112,8 +112,8 @@ const createSection = (items, id) => {
   leftArrow.addEventListener("click", slidePrev);
   carouselContainer.appendChild(leftArrow);
 
-  // pour chaque élément obtenu à partir de la réponse de l'API, créer l'élément
-  // et l'ajouter au carrousel
+  // pour chaque élément obtenu de l'API, créer l'élément
+  // et l'ajouter au carrousel.
   items.forEach((item) => {
     console.log(item);
     let divItem = document.createElement("div");
@@ -146,12 +146,12 @@ const createSection = (items, id) => {
 async function getMovieDetails(id, dict) {
   // récupère uniquement les pages 1 et 2 (seulement que les 7 films) de l'api
   dict.page = 1;
-  console.log("Appeler la gae 1");
+  console.log("calling page 1");
   let pageOne = await axios.get(root, {
     params: dict,
   });
   dict.page = 2;
-  console.log("Appeler la gae 2");
+  console.log("calling page 2");
   let pageTwo = await axios.get(root, {
     params: dict,
   });
@@ -162,9 +162,9 @@ async function getMovieDetails(id, dict) {
   createSection(items, id);
 }
 
-async function updateCarousel(url, carouselId) {
+async function updateCarousel(root, carouselId) {
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(root);
     const data = response.data.results;
     const carouselData = [];
 
@@ -180,7 +180,7 @@ async function updateCarousel(url, carouselId) {
 
     // Update the carousel with the new data
     const carousel = document.querySelector(`#${carouselId}`);
-    const carouselInner = carousel.querySelector(".carousel-inner");
+    const carouselInner = carousel.querySelector("carousel-container");
 
     // Clear the current items in the carousel
     carouselInner.innerHTML = "";
@@ -227,14 +227,14 @@ function getTopRatedMovies() {
       axios.get(target).then(function (response) {
         movie = response.data;
         console.log(movie.image_url);
-        let title = document.createElement("h1");
+        let title = document.createElement("h3");
         title.textContent = `${movie.title}`;
         let heroContent = document.getElementsByClassName("heroContent")[0];
         heroContent.appendChild(title);
         const hero = document.getElementsByClassName("hero")[0];
         hero.style.backgroundImage = "url(" + movie.image_url + ")";
         let button = document.createElement("button");
-        button.textContent = "Play";
+        button.textContent = "Info";
         button.setAttribute(
           "onclick",
           "createModal(" + movieId.toString() + ")"

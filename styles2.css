@@ -1,55 +1,279 @@
-* {
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  height: 100vh;
-  width: 100%;
-  background-color: #262626;
+  background-color: white;
+  font-family: Nunito sans, sans-serif;
+  padding-top: 70px;
+}
+
+img {
+  border-radius: 5px;
+  margin: 10px;
+}
+
+h1, h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2em;
 }
 
-.netflix-logo {
-  height: 15vw;
-  width: 100%;
-  text-align: center;
+button:hover {
+  background-color: slategrey;
 }
 
-.netflix-logo img {
-  height: 100%;
+ul li {
+  list-style-type: square;
+  margin-left: 20px;
 }
 
-.carousel {
-  height: 250px;
-  width: 80%;
-  position: relative;
-}
-
-.carousel .switchLeft,
-.carousel .switRight {
-  color: white;
-  font-weight: bold;
-  height: 100%;
-  width: 45px;
-  line-height: 250px;
-  font-size: 25px;
-  text-align: center;
-  background-color: aquamarine;
-  font-family: sans-serif;
+nav {
+  position: fixed;
   top: 0;
-  z-index: 3;
+  height: 70px;
+  background-color: silver;
+  width: 100%;
+  z-index: 10;
 }
 
-.carousel .switchLeft {
-  position: absolute;
-  left: -50px;
+nav ul {
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
-.carousel .switRight {
-  position: absolute;
-  right: -50px;
+nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: seashell;
+  font-size: larger;
+}
+
+nav ul li a::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  background-color: seashell;
+  width: 0%;
+  height: 2px;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  color: black;
+}
+
+#modal {
+  position: absolute;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+#modal #container__modal {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+  background-color: linen;
+  opacity: 0.95;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container__bestmovie {
+  position: relative;
+  background-color: white;
+  margin: 10px;
+  width: 1010px;
+}
+
+.container__bestmovie__media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: larger;
+  font-weight: bolder;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: silver;
+  color: seashell;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  outline: 0;
+}
+
+.container__category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1010px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.container__category__carroussel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500%;
+}
+
+.movieCard {
+  opacity: 0.8;
+}
+
+.movieCard:hover {
+  opacity: 1;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  cursor: pointer;
+}
+
+#btnInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  left: 70px;
+  top: 250px;
+  width: 60px;
+  height: 25px;
+  cursor: pointer;
+  background: silver;
+  color: white;
+  border: black;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+@media (max-width: 1070px) {
+  .container__category {
+    width: 800px;
+  }
+  .container__bestmovie {
+    width: 800px;
+  }
+}
+
+@media (max-width: 870px) {
+  .container__category {
+    width: 600px;
+  }
+  .container__bestmovie {
+    width: 600px;
+  }
+}
+
+@media (max-width: 425px) {
+  nav {
+    font-size: 12px;
+  }
+  .container__category {
+    width: 200px;
+  }
+  .container__bestmovie {
+    width: 200px;
+  }
+  #vimeo {
+    display: none;
+  }
+  #container__modal__img {
+    display: none;
+  }
+  h2, h1 {
+    font-size: smaller;
+  }
+}
+/*# sourceMappingURL=style.css.map */

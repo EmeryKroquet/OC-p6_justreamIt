@@ -1,9 +1,16 @@
-/*@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"); */
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
-  --primary: #141414;
-  --light: #f3f3f3;
-  --dark: #686868;
+  --primary: #fbfafa;
+  --light: #f1f1ef;
+  --dark: #2d2d2c;
 }
 
 html {
@@ -11,21 +18,22 @@ html {
 }
 
 body {
-  margin: 0;
-  background-color: #000;
-  font-family: Arial;
+  background-color: white;
+  font-family: Nunito sans, sans-serif;
+  padding-top: 80px;
 }
 
 img {
-  max-width: 80%;
+  border-radius: 1px;
+  margin: 5px;
 }
 
 .carousel-container {
   display: grid;
-  width: 90%;
+  width: 80%;
   margin: auto;
   height: 350px;
-  min-height: 200px;
+  min-height: 100px;
   position: relative;
 }
 
@@ -75,11 +83,7 @@ img {
   position: absolute;
   top: 46%;
   right: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgb(248, 246, 246) 100%
-  );
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(16, 16, 16) 100%);
 }
 
 .right-arrow.hide {
@@ -107,14 +111,14 @@ header {
 .Logo {
   grid-area: nt;
   object-fit: cover;
-  width: 180px;
+  width: 100px;
   max-height: 100%;
   padding-left: 30px;
   padding-top: 0px;
 }
 
 #logo {
-  color: #0e0e0e;
+  color: #da09e5;
   margin: 0;
   padding: 0;
 }
@@ -126,148 +130,8 @@ header {
 .home a {
   background-color: var(--primary);
   text-decoration: none;
-  color: rgb(98, 94, 99);
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
-
-:root {
-  --primary: #141414;
-  --light: #f3f3f3;
-  --dark: #686868;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Inter", sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0%;
-  background-color: #000;
-  font-family: Arial;
-}
-
-img {
-  width: 100%;
-  display: block;
-}
-
-.carousel-container {
-  display: grid;
-  width: 90%;
-  margin: auto;
-  height: 350px;
-  min-height: 200px;
-  position: relative;
-}
-
-.carousel-container .carousel-inner {
-  overflow: hidden;
-  height: 250px;
-}
-
-.carousel-container .track {
-  display: inline-flex;
-  transition: transform 0.5s;
-}
-
-.carousel-container .item {
-  width: 250px;
-  height: 250px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.arrow__btn {
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  font-size: 6em;
-  background: black;
-  width: 30px;
-  margin: auto;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.left-arrow {
-  display: block;
-  position: absolute;
-  top: 40%;
-  left: 0;
-  background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
-}
-
-.left-arrow.show {
-  display: block;
-}
-
-.right-arrow {
-  position: absolute;
-  top: 40%;
-  right: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(10, 10, 10) 100%);
-}
-
-.right-arrow.hide {
-  display: none;
-}
-
-/* Header*/
-header {
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-areas: "nt mn mn sb . . . ";
-  background-color: var(--primary);
-  width: 100%;
-  margin-bottom: 0px;
-  z-index: 5;
-  align-content: space-around;
-  justify-content: space-between;
-  align-items: center;
-  justify-items: center;
-}
-
-.Logo {
-  grid-area: nt;
-  object-fit: cover;
-  width: 200px;
-  max-height: 100%;
-  padding-left: 30px;
-  padding-top: 0px;
-}
-
-#logo {
-  color: hsl(281, 92%, 47%);
-  margin: 0;
-  padding: 0;
-}
-
-.home {
-  width: 50px;
-}
-
-.home a {
-  background-color: var(--primary);
-  text-decoration: none;
-  color: rgb(139, 37, 155);
-  padding: 18px;
+  color: rgb(22, 22, 22);
+  padding: 26px;
   font-size: 16px;
   border: none;
 }
@@ -278,7 +142,7 @@ header {
 
 .dropbtn {
   background-color: var(--primary);
-  color: rgb(139, 37, 155);
+  color: rgb(22, 22, 22);
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -299,7 +163,7 @@ header {
 }
 
 .dropdown-content a {
-  color: rgb(139, 37, 155);
+  color: rgb(13, 13, 13);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -318,36 +182,54 @@ header {
 }
 
 h3 {
-  color: rgb(247, 245, 247);
-  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1.2em;
 }
 
-/* The Modal (background) */
+/* Modal */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(248, 228, 9, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
+  /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 60%; /* Could be more or less, depending on screen size */
+  width: 50%;
+  /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-  color: #f771f3;
+  color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -355,7 +237,7 @@ h3 {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(248, 232, 17);
   text-decoration: none;
   cursor: pointer;
 }
@@ -378,7 +260,7 @@ h3 {
 }
 
 .hero .heroContent button {
-  background: rgb(172, 4, 187);
+  background: rgb(248, 232, 17);
   display: flex;
   height: 44px;
   align-items: center;
@@ -391,13 +273,3 @@ h3 {
   font-size: 14px;
   font-weight: 600;
 }
-
-/* Footer */
-footer {
-  padding: 12px;
-  text-align: center;
-  color: var(--dark);
-  margin: 10px;
-}
-
-/*# sourceMappingURL=styles.css.map */
