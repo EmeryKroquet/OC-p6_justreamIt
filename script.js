@@ -1,4 +1,3 @@
-//L' url de l'API
 const url = "http://localhost:8000/api/v1/titles/";
 
 const body = document.body;
@@ -40,7 +39,7 @@ const slidePrev = (evt) => {
 
 // Créer le Modal pour l' API
 const createModal = async (itemId) => {
-  let target = root.concat(itemId);
+  let target = url.concat(itemId);
   // attend la réponse sur le point de terminaison spécifique du film
   response = await axios.get(target);
   modalContent = modal.querySelector(".modal-content");
@@ -49,44 +48,57 @@ const createModal = async (itemId) => {
   // récupérer les données de la réponse
   // et remplir la fenêtre modale avec les données pertinentes
   let item = response.data;
+
   let image = document.createElement("img");
   image.src = `${item.image_url}`;
   textArea.appendChild(image);
+
   let title = document.createElement("h1");
   title.textContent = `${item.title}`;
+  textArea.appendChild(title);
+
   let genres = document.createElement("p");
   genres.textContent = `Genres: ${item.genres}`;
+  textArea.appendChild(genres);
+
   let releaseDate = document.createElement("p");
   releaseDate.textContent = `Release Date: ${item.date_published}`;
+  textArea.appendChild(releaseDate);
+
   let year = document.createElement("p");
   year.textContent = `${item.year}`;
+  textArea.appendChild(year);
+
   let rated = document.createElement("p");
   rated.textContent = `Rated: ${item.rated}`;
+  textArea.appendChild(rated);
+
   let imdbScore = document.createElement("p");
   imdbScore.textContent = `IMDB Score: ${item.imdb_score}`;
+  textArea.appendChild(imdbScore);
+
   let directors = document.createElement("p");
   directors.textContent = `Director: ${item.directors}`;
+  textArea.appendChild(directors);
+
   let actors = document.createElement("p");
   actors.textContent = `Actors: ${item.actors}`;
+  textArea.appendChild(actors);
+
   let duration = document.createElement("p");
   duration.textContent = `Duration: ${item.duration} mins`;
+  textArea.appendChild(duration);
+
   let country = document.createElement("p");
   country.textContent = `Country: ${item.countries}`;
+  textArea.appendChild(country);
+
   let boxOffice = document.createElement("p");
   boxOffice.textContent = `Box Office: ${item.budget_currency} ${item.worldwide_gross_income}`;
+  textArea.appendChild(boxOffice);
+
   let summary = document.createElement("p");
   summary.textContent = `Summary: ${item.long_description}`;
-
-  textArea.appendChild(title);
-  textArea.appendChild(genres);
-  textArea.appendChild(releaseDate);
-  textArea.appendChild(rated);
-  textArea.appendChild(imdbScore);
-  textArea.appendChild(directors);
-  textArea.appendChild(actors);
-  textArea.appendChild(duration);
-  textArea.appendChild(country);
-  textArea.appendChild(boxOffice);
   textArea.appendChild(summary);
 
   // une fois que toutes les données sont analysées dans la fenêtre modale
@@ -146,12 +158,12 @@ const createSection = (items, id) => {
 async function getMovieDetails(id, dict) {
   // récupère uniquement les pages 1 et 2 (seulement que les 7 films) de l'api
   dict.page = 1;
-  console.log("calling page 1");
+  console.log("Page 1");
   let pageOne = await axios.get(url, {
     params: dict,
   });
   dict.page = 2;
-  console.log("calling page 2");
+  console.log("Page 2");
   let pageTwo = await axios.get(url, {
     params: dict,
   });
@@ -160,51 +172,6 @@ async function getMovieDetails(id, dict) {
   let items = pageOne.data.results.concat(pageTwo.data.results.slice(0, 2));
   console.log(items);
   createSection(items, id);
-}
-
-async function updateCarousel(url, carouselId) {
-  try {
-    const response = await axios.get(url);
-    const data = response.data.results;
-    const carouselData = [];
-
-    // Format the data for the carousel
-    data.forEach((item) => {
-      carouselData.push({
-        title: item.title,
-        image: item.image_url,
-        year: item.year,
-        imdb: item.imdb_score,
-      });
-    });
-
-    // Update the carousel with the new data
-    const carousel = document.querySelector(`#${carouselId}`);
-    const carouselInner = carousel.querySelector("carousel-container");
-
-    // Clear the current items in the carousel
-    carouselInner.innerHTML = "";
-
-    // Add the new items to the carousel
-    for (let i = 0; i < carouselData.length; i++) {
-      const item = carouselData[i];
-      const active = i === 0 ? "active" : "";
-
-      const carouselItem = `
-        <div class="carousel-item ${active}">
-          <img src="${item.image}" class="d-block w-100" alt="${item.title}">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>${item.title}</h5>
-            <p>${item.year} | IMDB ${item.imdb}</p>
-          </div>
-        </div>
-      `;
-
-      carouselInner.insertAdjacentHTML("beforeend", carouselItem);
-    }
-  } catch (error) {
-    console.error(error);
-  }
 }
 
 // cette fonction récupère le film n°1 par imdb_score et affiche les informations
