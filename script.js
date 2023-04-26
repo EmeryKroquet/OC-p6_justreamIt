@@ -1,5 +1,5 @@
 //L' url de l'API
-const root = "http://localhost:8000/api/v1/titles/";
+const url = "http://localhost:8000/api/v1/titles/";
 
 const body = document.body;
 
@@ -147,12 +147,12 @@ async function getMovieDetails(id, dict) {
   // récupère uniquement les pages 1 et 2 (seulement que les 7 films) de l'api
   dict.page = 1;
   console.log("calling page 1");
-  let pageOne = await axios.get(root, {
+  let pageOne = await axios.get(url, {
     params: dict,
   });
   dict.page = 2;
   console.log("calling page 2");
-  let pageTwo = await axios.get(root, {
+  let pageTwo = await axios.get(url, {
     params: dict,
   });
 
@@ -162,9 +162,9 @@ async function getMovieDetails(id, dict) {
   createSection(items, id);
 }
 
-async function updateCarousel(root, carouselId) {
+async function updateCarousel(url, carouselId) {
   try {
-    const response = await axios.get(root);
+    const response = await axios.get(url);
     const data = response.data.results;
     const carouselData = [];
 
@@ -211,7 +211,7 @@ async function updateCarousel(root, carouselId) {
 // dans le héros.
 function getTopRatedMovies() {
   axios
-    .get(root, {
+    .get(url, {
       params: {
         sort_by: "-imdb_score",
       },
@@ -220,7 +220,7 @@ function getTopRatedMovies() {
       // obtenir le premier film
       let movieId = response.data.results[0].id;
       console.log(movieId);
-      let target = root.concat(movieId);
+      let target = url.concat(movieId);
 
       // une fois la promesse résolue, nous utilisons les données en réponse
       // pour créer le composant héros

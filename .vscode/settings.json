@@ -1,6 +1,6 @@
 {
   "files.autoSave": "afterDelay",
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Default High Contrast",
   "workbench.preferredDarkColorTheme": "Default Dark+",
   "workbench.preferredHighContrastColorTheme": "Abyss",
   "workbench.iconTheme": "vs-minimal",
