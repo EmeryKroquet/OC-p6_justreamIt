@@ -172,16 +172,8 @@ header {
 }
 
 h3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: left;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 1.2em;
+  color: rgb(14, 13, 13);
+  text-align: left;
 }
 
 /* Modal */
@@ -256,7 +248,7 @@ h3 {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: white;
+  color: rgb(12, 12, 12);
   padding: 20px;
   box-sizing: border-box;
   border-radius: 44px;

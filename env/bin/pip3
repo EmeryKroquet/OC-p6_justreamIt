@@ -1,4 +1,4 @@
-#!/Users/emerykroquet/Documents/OC_PROJECTS/OC_P6_juststreamit/env/bin/python3
+#!/Users/emerykroquet/Documents/OC_PROJECTS/OC_P6_juststreamit/env/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
