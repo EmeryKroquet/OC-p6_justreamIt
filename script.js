@@ -1,8 +1,10 @@
-const url = "http://localhost:8000/api/v1/titles/";
+// the main endpoint of the api
+const root = "http://localhost:8000/api/v1/titles/";
 
 const body = document.body;
 
-//la fenêtre modale
+// Code for the Modal
+
 const modal = document.getElementById("itemModal");
 const closeBtn = document.getElementsByClassName("close")[0];
 
@@ -14,7 +16,8 @@ closeBtn.onclick = function () {
   textArea.innerHTML = "";
 };
 
-//Caroussel
+//Carousel
+
 const slideNext = (evt) => {
   let tracks = document.getElementsByClassName("track");
   let track = tracks[evt.currentTarget.id];
@@ -37,18 +40,17 @@ const slidePrev = (evt) => {
   }
 };
 
-// Créer le Modal pour l' API
+// API JS
+
 const createModal = async (itemId) => {
-  let target = url.concat(itemId);
-  // attend la réponse sur le point de terminaison spécifique du film
+  let target = root.concat(itemId);
+  // await for the response on the specific endpoint of the movie
   response = await axios.get(target);
   modalContent = modal.querySelector(".modal-content");
   textArea = modalContent.querySelector(".textArea");
-
-  // récupérer les données de la réponse
-  // et remplir la fenêtre modale avec les données pertinentes
+  // get the data from the response
+  // populate the modal with the relevant data
   let item = response.data;
-
   let image = document.createElement("img");
   image.src = `${item.image_url}`;
   textArea.appendChild(image);
@@ -67,7 +69,7 @@ const createModal = async (itemId) => {
 
   let year = document.createElement("p");
   year.textContent = `${item.year}`;
-  textArea.appendChild(year);
+  textArea.appendChild(textContent);
 
   let rated = document.createElement("p");
   rated.textContent = `Rated: ${item.rated}`;
@@ -101,13 +103,13 @@ const createModal = async (itemId) => {
   summary.textContent = `Summary: ${item.long_description}`;
   textArea.appendChild(summary);
 
-  // une fois que toutes les données sont analysées dans la fenêtre modale
-  // afficher la modale
+  // once all the data is parsed in the modal
+  // display the modal
   modal.style.display = "block";
 };
 
 const createSection = (items, id) => {
-  // obtenir le carrousel avec l'identifiant correspondant
+  // get the carousel with the matching id
   let carouselContainer = document.getElementById(id);
   console.log("carouselContainer: " + carouselContainer);
   let carouselInner =
@@ -115,17 +117,15 @@ const createSection = (items, id) => {
   let track = carouselInner.getElementsByClassName("track")[0];
   track.id = id;
   track.index = 0;
-
-  // créer la flèche vers la gauche
+  // create the arrow left
   let leftArrow = document.createElement("a");
   leftArrow.classList.add("arrow__btn", "left-arrow");
   leftArrow.textContent = "‹";
   leftArrow.id = id;
   leftArrow.addEventListener("click", slidePrev);
   carouselContainer.appendChild(leftArrow);
-
-  // pour chaque élément obtenu de l'API, créer l'élément
-  // et l'ajouter au carrousel.
+  // for each item we got from the api response, create the item
+  // and append it to the carousel
   items.forEach((item) => {
     console.log(item);
     let divItem = document.createElement("div");
@@ -135,16 +135,13 @@ const createSection = (items, id) => {
     divItem.setAttribute("onclick", "createModal(" + itemId.toString() + ")");
     let image = document.createElement("img");
     image.src = `${item.image_url}`;
-
     // let modal = createModal(item)
     divItem.appendChild(image);
     body.appendChild(modal);
-
-    // ajouter chaque élément à la section
+    // append each item to the section
     track.appendChild(divItem);
   });
-
-  // créer et ajouter la flèche à droite
+  // create and append the arrow right
   let rightArrow = document.createElement("a");
   rightArrow.classList.add("arrow__btn", "right-arrow");
   rightArrow.textContent = "›";
@@ -154,54 +151,52 @@ const createSection = (items, id) => {
   carouselContainer.appendChild(rightArrow);
 };
 
-// fonction asynchrone qui charge les données de l'api afin de créer un carrousel
-async function getMovieDetails(id, dict) {
-  // récupère uniquement les pages 1 et 2 (seulement que les 7 films) de l'api
+// async function that loads the data from the api in order to create a carousel
+async function loadCarousel(id, dict) {
+  // gets page 1 and 2 only (need only 7 movies) from the api
   dict.page = 1;
-  console.log("Page 1");
-  let pageOne = await axios.get(url, {
+  console.log("calling page 1");
+  let pageOne = await axios.get(root, {
     params: dict,
   });
   dict.page = 2;
-  console.log("Page 2");
-  let pageTwo = await axios.get(url, {
+  console.log("calling page 2");
+  let pageTwo = await axios.get(root, {
     params: dict,
   });
-
-  // les éléments sont tous les 5 films de la page 1 + 2 films de la page 2
+  // items are all 5 movies of pageOne + 2 movies of pageTwo
   let items = pageOne.data.results.concat(pageTwo.data.results.slice(0, 2));
   console.log(items);
   createSection(items, id);
 }
 
-// cette fonction récupère le film n°1 par imdb_score et affiche les informations
-// dans le héros.
-function getTopRatedMovies() {
+// this function gets the #1 movie by imdb_score and show the relevant
+// information in the hero
+function getBestMovie() {
   axios
-    .get(url, {
+    .get(root, {
       params: {
         sort_by: "-imdb_score",
       },
     })
     .then(function (response) {
-      // obtenir le premier film
+      // get the first movie
       let movieId = response.data.results[0].id;
       console.log(movieId);
-      let target = url.concat(movieId);
-
-      // une fois la promesse résolue, nous utilisons les données en réponse
-      // pour créer le composant héros
+      let target = root.concat(movieId);
+      // once the promise is resolved, we use the data in response
+      // to create the hero component
       axios.get(target).then(function (response) {
         movie = response.data;
         console.log(movie.image_url);
-        let title = document.createElement("h3");
+        let title = document.createElement("h1");
         title.textContent = `${movie.title}`;
         let heroContent = document.getElementsByClassName("heroContent")[0];
         heroContent.appendChild(title);
         const hero = document.getElementsByClassName("hero")[0];
         hero.style.backgroundImage = "url(" + movie.image_url + ")";
         let button = document.createElement("button");
-        button.textContent = "Info";
+        button.textContent = "Plus d'Info";
         button.setAttribute(
           "onclick",
           "createModal(" + movieId.toString() + ")"
@@ -217,25 +212,25 @@ function getTopRatedMovies() {
     });
 }
 
-// Appelle de toutes les fonctions pour afficher les données de l'API dans la page.
+// Calls all the functions to display the data from the api in the page
 
-getTopRatedMovies();
+getBestMovie();
 
-getMovieDetails("bestMovies", {
+loadCarousel("bestMovies", {
   sort_by: "-imdb_score",
 });
 
-getMovieDetails("categorie1", {
+loadCarousel("bestBiographies", {
   sort_by: "-imdb_score",
-  genre_contains: "Animation",
+  genre_contains: "Biography",
 });
 
-getMovieDetails("categorie2", {
+loadCarousel("bestOfComedy", {
   sort_by: "-imdb_score",
-  genre_contains: "Family",
+  genre_contains: "Comedy",
 });
 
-getMovieDetails("categorie3", {
+loadCarousel("bestOfDrama", {
   sort_by: "-imdb_score",
-  genre_contains: "Film-Noir",
+  genre_contains: "Drama",
 });

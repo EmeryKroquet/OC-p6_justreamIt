@@ -1,85 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Just Stream It</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
-    integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JustStreamIt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+      integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
   <body>
-    <!-- Header -->
-    <header> <div class="Logo">
-      <a id="logo" href="#home"><img src="images/logo.png" alt="Image de Logo"></a>
-    </div>
-    <div class="home">
-      <a href="#">Home</a>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Categories</button>
-      <div class="dropdown-content">
+    <header>
+      <div class="Logo">
+        <a id="logo" href="#home"
+          ><img src="images/logo.png" alt="Logo Image"
+        /></a>
+      </div>
+      <div class="home">
         <a href="#">Home</a>
-        <a href="#bestMovies">Meilleurs Films</a>
-        <a href="#categie1">Catégorie 1</a>
-        <a href="#categorie2">Catégorie 2</a>
-        <a href="#categorie3">Catégorie 3</a>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="#bestMovies">Best Movies</a>
+          <a href="#bestBiographies">Biography</a>
+          <a href="#bestOfComedy">Comedy</a>
+          <a href="#bestOfDrama">Drama</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="heroContent"></div>
+    </div>
+
+    <div class="modal" id="itemModal" style="display: none">
+      <div class="modal-content">
+        <span class="close">x</span>
+        <div class="textArea"></div>
       </div>
     </div>
-  </header>
 
-  <!-- Main Container -->
-  <div class="hero">
-    <div class="heroContent">
-    </div>
-  </div>
-
-  <div class="modal" id="itemModal" style="display: none;">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="textArea">
+    <div class="carousel-container" id="bestMovies">
+      <h1>Best Movies</h1>
+      <div class="carousel-inner">
+        <div class="track"></div>
       </div>
     </div>
-  </div>
 
-  
-
-  <div class="carousel-container" id="bestMovies">
-    <h3>Meilleurs Films</h3>
-    <div class="carousel-inner">
-      <div class="track" >
+    <div class="carousel-container" id="bestBiographies">
+      <h1>Biography</h1>
+      <div class="carousel-inner">
+        <div class="track"></div>
       </div>
     </div>
-  </div>
 
-
-  <div class="carousel-container" id="categorie1">
-    <h3>Animation</h3>
-    <div class="carousel-inner">
-      <div class="track">
+    <div class="carousel-container" id="bestOfComedy">
+      <h1>Comedies</h1>
+      <div class="carousel-inner">
+        <div class="track"></div>
       </div>
     </div>
-  </div>
 
-
-  <div class="carousel-container" id="categorie2">
-    <h3>Family</h3>
-    <div class="carousel-inner">
-      <div class="track">
+    <div class="carousel-container" id="bestOfDrama">
+      <h1>Dramas</h1>
+      <div class="carousel-inner">
+        <div class="track"></div>
       </div>
     </div>
-  </div>
-
-
-  <div class="carousel-container" id="categorie3">
-    <h3>Film-Noir</h3>
-    <div class="carousel-inner">
-      <div class="track">
-      </div>
-    </div>
-  </div>
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
