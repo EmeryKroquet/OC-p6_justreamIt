@@ -1,5 +1,4 @@
-// the main endpoint of the api
-const root = "http://localhost:8000/api/v1/titles/";
+const Base_url = "http://localhost:8000/api/v1/titles/";
 
 const body = document.body;
 
@@ -43,7 +42,7 @@ const slidePrev = (evt) => {
 // API JS
 
 const createModal = async (itemId) => {
-  let target = root.concat(itemId);
+  let target = Base_url.concat(itemId);
   // await for the response on the specific endpoint of the movie
   response = await axios.get(target);
   modalContent = modal.querySelector(".modal-content");
@@ -55,7 +54,7 @@ const createModal = async (itemId) => {
   image.src = `${item.image_url}`;
   textArea.appendChild(image);
 
-  let title = document.createElement("h1");
+  let title = document.createElement("h2");
   title.textContent = `${item.title}`;
   textArea.appendChild(title);
 
@@ -69,7 +68,7 @@ const createModal = async (itemId) => {
 
   let year = document.createElement("p");
   year.textContent = `${item.year}`;
-  textArea.appendChild(textContent);
+  textArea.appendChild(year);
 
   let rated = document.createElement("p");
   rated.textContent = `Rated: ${item.rated}`;
@@ -108,7 +107,7 @@ const createModal = async (itemId) => {
   modal.style.display = "block";
 };
 
-const createSection = (items, id) => {
+const createSectionCarousel = (items, id) => {
   // get the carousel with the matching id
   let carouselContainer = document.getElementById(id);
   console.log("carouselContainer: " + carouselContainer);
@@ -152,29 +151,29 @@ const createSection = (items, id) => {
 };
 
 // async function that loads the data from the api in order to create a carousel
-async function loadCarousel(id, dict) {
+async function loadCarouselMovie(id, dict) {
   // gets page 1 and 2 only (need only 7 movies) from the api
   dict.page = 1;
-  console.log("calling page 1");
-  let pageOne = await axios.get(root, {
+  console.log("Page 1");
+  let pageOne = await axios.get(Base_url, {
     params: dict,
   });
   dict.page = 2;
-  console.log("calling page 2");
-  let pageTwo = await axios.get(root, {
+  console.log("Page 2");
+  let pageTwo = await axios.get(Base_url, {
     params: dict,
   });
-  // items are all 5 movies of pageOne + 2 movies of pageTwo
-  let items = pageOne.data.results.concat(pageTwo.data.results.slice(0, 2));
+  // items are all 7 movies of pageOne + 2 movies of pageTwo
+  let items = pageOne.data.results.concat(pageTwo.data.results.slice(0, 10));
   console.log(items);
-  createSection(items, id);
+  createSectionCarousel(items, id);
 }
 
 // this function gets the #1 movie by imdb_score and show the relevant
 // information in the hero
-function getBestMovie() {
+function getTopMovie() {
   axios
-    .get(root, {
+    .get(Base_url, {
       params: {
         sort_by: "-imdb_score",
       },
@@ -183,7 +182,7 @@ function getBestMovie() {
       // get the first movie
       let movieId = response.data.results[0].id;
       console.log(movieId);
-      let target = root.concat(movieId);
+      let target = Base_url.concat(movieId);
       // once the promise is resolved, we use the data in response
       // to create the hero component
       axios.get(target).then(function (response) {
@@ -196,7 +195,7 @@ function getBestMovie() {
         const hero = document.getElementsByClassName("hero")[0];
         hero.style.backgroundImage = "url(" + movie.image_url + ")";
         let button = document.createElement("button");
-        button.textContent = "Plus d'Info";
+        button.textContent = "Plus d'Info..";
         button.setAttribute(
           "onclick",
           "createModal(" + movieId.toString() + ")"
@@ -214,23 +213,23 @@ function getBestMovie() {
 
 // Calls all the functions to display the data from the api in the page
 
-getBestMovie();
+getTopMovie();
 
-loadCarousel("bestMovies", {
+loadCarouselMovie("bestMovies", {
   sort_by: "-imdb_score",
 });
 
-loadCarousel("bestBiographies", {
+loadCarouselMovie("categorie1", {
   sort_by: "-imdb_score",
   genre_contains: "Biography",
 });
 
-loadCarousel("bestOfComedy", {
+loadCarouselMovie("categorie2", {
   sort_by: "-imdb_score",
   genre_contains: "Comedy",
 });
 
-loadCarousel("bestOfDrama", {
+loadCarouselMovie("categorie3", {
   sort_by: "-imdb_score",
   genre_contains: "Drama",
 });

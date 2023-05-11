@@ -1,5 +1,5 @@
 :root {
-  --primary: #2206f7;
+  --primary: #3607ef;
   --light: #f3f3f3;
   --dark: #686868;
 }
@@ -98,7 +98,7 @@ header {
   justify-items: center;
 }
 
-.Logo {
+.logo {
   grid-area: nt;
   object-fit: cover;
   width: 200px;
@@ -130,7 +130,7 @@ header {
   background-color: var(--primary);
 }
 
-.dropbtn {
+.drop-btn {
   background-color: var(--primary);
   color: white;
   padding: 16px;
@@ -138,12 +138,12 @@ header {
   border: none;
 }
 
-.dropdown {
+.drop-down {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-content {
+.drop-down-content {
   display: none;
   position: absolute;
   background-color: var(--light);
@@ -152,22 +152,22 @@ header {
   z-index: 1;
 }
 
-.dropdown-content a {
-  color: black;
+.drop-down-content a {
+  color: rgb(48, 25, 247);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:hover {
+.drop-down-content a:hover {
   background-color: var(--light);
 }
 
-.dropdown:hover .dropdown-content {
+.drop-down:hover .drop-down-content {
   display: block;
 }
 
-.dropdown:hover .dropbtn {
+.drop-down:hover .drop-btn {
   background-color: var(--primary);
 }
 
@@ -211,7 +211,7 @@ h1 {
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: #303031;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -219,7 +219,7 @@ h1 {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(48, 25, 247);
   text-decoration: none;
   cursor: pointer;
 }
@@ -242,7 +242,7 @@ h1 {
 }
 
 .hero .heroContent button {
-  background: rgb(93, 6, 244);
+  background: rgb(48, 25, 247);
   display: flex;
   height: 44px;
   align-items: center;
