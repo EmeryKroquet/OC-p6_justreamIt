@@ -1,6 +1,6 @@
 # OpenClassrooms Projet 6 JustStreamIt
 
-![](justreamit.pn)
+<img src="images/justreamit.png" alt="">
 
 ## Sujet: Développez une interface utilisateur pour une application web Python
 
@@ -48,7 +48,6 @@ Entrez la commande:
 Démarrer le serveur avec pipenv run:
 `$ python manage.py runserver`
 
-
 - Récupérer le click + catégorie et coté
 - Regarde l'api et construit l'url pour ta requete
-http://localhost/api/titles/.....{categorie}/?page=2
+  http://localhost/api/titles/.....{categorie}/?page=2
