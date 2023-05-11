@@ -3,3 +3,4 @@
 env
 document.txt
 .env
+.DS_Store

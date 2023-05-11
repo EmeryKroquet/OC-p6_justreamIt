@@ -1,6 +1,10 @@
 # OpenClassrooms Projet 6 JustStreamIt
 
+#
+
 <img src="images/justreamit.png" alt="">
+
+#
 
 ## Sujet: Développez une interface utilisateur pour une application web Python
 
