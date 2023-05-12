@@ -192,9 +192,9 @@ h1 {
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: black;
+  background-color: rgb(65, 63, 63);
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(50, 49, 49, 0.4);
   /* Black w/ opacity */
 }
 
@@ -211,7 +211,7 @@ h1 {
 
 /* The Close Button */
 .close {
-  color: #303031;
+  color: #505052;
   float: right;
   font-size: 28px;
   font-weight: bold;

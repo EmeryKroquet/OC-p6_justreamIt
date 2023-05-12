@@ -164,7 +164,7 @@ async function loadCarouselMovie(id, dict) {
     params: dict,
   });
   // items are all 7 movies of pageOne + 2 movies of pageTwo
-  let items = pageOne.data.results.concat(pageTwo.data.results.slice(0, 10));
+  let items = pageOne.data.results.concat(pageTwo.data.results.slice(0, 2));
   console.log(items);
   createSectionCarousel(items, id);
 }
